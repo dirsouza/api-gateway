@@ -16,10 +16,10 @@ const app = express();
 apollo.applyMiddleware({ app });
 
 let server;
-if (config.ssl) {
+if (config.ssl && config.ssl === 'true') {
   server = https.createServer({
-    key: fs.readFileSync(`${config.ssl_key}`),
-    cert: fs.readFileSync(`${config.ssl_crt}`)
+    key: fs.readFileSync(`${config.sslKey}`),
+    cert: fs.readFileSync(`${config.sslCrt}`)
   }, app);
 } else {
   server  = http.createServer(app);
