@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+### JetBrains
+.idea
+
+### VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+### Node
+node_modules
+output
+*.log
+dist

@@ -1,0 +1,64 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "API Gateway Vendas",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "https://github.com/dirsouza/api-gateway.git",
+  "scripts": {
+    "build": "gulp build",
+    "start": "concurrently --kill-others -- --dev --test:watch",
+    "dev": "ts-node-dev src/index.ts",
+    "test:watch": "jest --watch",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
+  },
+  "dependencies": {
+    "apollo-server": "^2.10.0",
+    "apollo-server-express": "^2.10.0",
+    "express": "^4.17.1",
+    "graphql": "^14.6.0"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.5.0",
+    "@types/jest": "^25.1.2",
+    "concurrently": "^5.1.0",
+    "del": "^5.1.0",
+    "graphql-import": "^0.7.1",
+    "gulp": "^4.0.2",
+    "gulp-tslint": "^8.1.4",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^25.2.0",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tslint": "^6.0.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.5"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.test\\.ts",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "coverageReporters": [
+      "text",
+      "cobertura",
+      "lcov"
+    ],
+    "collectCoverageFrom": [
+      "**/src/**/*.ts",
+      "!**/src/{app,index}.ts",
+      "!**/src/models/*.ts"
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+# import * from 'Directive.graphql';
+# import * from 'Scalar.graphql';
+# import * from 'Enum.graphql';
+# import Query.*, Mutation.* from 'User.graphql';
