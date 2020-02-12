@@ -1,7 +1,8 @@
-export const getUsers = (_: any, args, cxt, info) => {
-  const users = [
-    { id: 1, name: 'Fulano', email: 'fulano@fulano.com' }
-  ];
+import { IResolverContext } from '../../interfaces';
+import { TResponse } from '../../types';
 
-  return users;
+export const getUsers = async (_: any, args: any, { dataSources }: IResolverContext): Promise<any> => {
+  const usersResponse: TResponse = await dataSources.userApi.getUsers();
+
+  return usersResponse.data;
 };
