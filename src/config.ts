@@ -1,18 +1,14 @@
 require('dotenv-flow').config();
-import { TConfig, TMicroService } from './types';
+import { IConfig, IMicroService } from './interfaces';
 
-const { SSL: ssl = false, PORT: port = 4000, HOSTNAME: hostname = 'localhost', SSL_KEY: sslKey = null, SSL_CRT: sslCrt = null } = process.env;
-
-export const config: TConfig = {
-  ssl,
-  port,
-  hostname,
-  sslKey,
-  sslCrt
+export const config: IConfig = {
+  ssl: process.env.SSL || false,
+  port: process.env.PORT || 4000,
+  hostname: process.env.HOSTNAME || 'localhost',
+  sslKey: process.env.SSL_KEY || undefined,
+  sslCrt: process.env.SSL_CRT || undefined
 };
 
-const { LEGADO_PMZ: legadoPmz } = process.env;
-
-export const microService: TMicroService = {
-  legadoPmz
+export const microService: IMicroService = {
+  legadoPmz: process.env.LEGADO_PMZ || undefined
 };

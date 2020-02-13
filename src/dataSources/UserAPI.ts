@@ -1,5 +1,5 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
-import { TResponse } from '../types';
+import { IResponse } from '../interfaces';
 
 class UserAPI extends RESTDataSource {
   constructor(config) {
@@ -9,7 +9,7 @@ class UserAPI extends RESTDataSource {
 
   public getUsers() {
     try {
-      const users: TResponse = {
+      const users: IResponse = {
         success: true,
         data: [
           { id: 1, name: "Fulano", email: "fulano@fulano.com.br"}
