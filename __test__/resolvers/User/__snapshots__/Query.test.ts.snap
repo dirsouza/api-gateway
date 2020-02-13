@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teste Usuarios Resolver return all users (Exception) 1`] = `
+Object {
+  "data": Object {
+    "getUsers": Array [
+      Object {
+        "email": "fulano@fulano.com.br",
+        "id": "1",
+        "name": "Fulano",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Teste Usuarios Resolver return all users 1`] = `
+Object {
+  "data": Object {
+    "getUsers": Array [
+      Object {
+        "email": "fulano@fulano.com.br",
+        "id": "1",
+        "name": "Fulano",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;

@@ -24,9 +24,9 @@ const apollo = new ApolloServer({
   },
   context: () => {
     return {
-      token: 'teste'
-    }
-  }
+      token: 'teste',
+    };
+  },
 });
 
 const app = express();
@@ -34,14 +34,15 @@ apollo.applyMiddleware({ app });
 
 let server;
 if (config.ssl && config.ssl === 'true') {
-  server = https.createServer({
-    key: fs.readFileSync(`${config.sslKey}`),
-    cert: fs.readFileSync(`${config.sslCrt}`)
-  }, app);
+  server = https.createServer(
+    {
+      key: fs.readFileSync(`${config.sslKey}`),
+      cert: fs.readFileSync(`${config.sslCrt}`),
+    },
+    app,
+  );
 } else {
-  server  = http.createServer(app);
+  server = http.createServer(app);
 }
 
 export { server, apollo, config };
-
-

@@ -1,27 +1,17 @@
-import { RESTDataSource }  from 'apollo-datasource-rest';
-import { IResponse } from '../interfaces';
+import { RESTDataSource } from 'apollo-datasource-rest';
 
 class CatalogoAPI extends RESTDataSource {
-
   constructor(config){
       super()
       this.baseURL = `${config.services}/ws-controle-acesso/api`
   }
 
   public async searchProduto(pesqProduto) {
-
     try {
-      
       const response = await this.get('/login/find/login/sistema/', pesqProduto);
 
-      const produto: IResponse = {
-        success: true,
-        data: response,
-        message: "Resultado!"
-      };
-
-      if (!produto) {
-        throw new Error(response.message || response.error);
+      if (!response) {
+        throw new Error('Not found results');
       }
 
       const produtosPage = {
@@ -32,22 +22,17 @@ class CatalogoAPI extends RESTDataSource {
         totalElementos: response.produtos.totalElements,
         totalPaginas: response.produtos.totalPages,
       };
-      
+
       return {
         success: true,
-        data: produtosPage
-      }
-
+        data: produtosPage,
+      };
     } catch (e) {
-
       return {
         success: false,
-        error: e.extensions ? e.extensions.response.body.error : e.message
-      }
-
+        error: e.extensions ? e.extensions.response.body.error : e.message,
+      };
     }
-
   }
-
 }
 export default CatalogoAPI;

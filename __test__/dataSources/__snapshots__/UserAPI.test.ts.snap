@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teste Usuarios DataSource return all users 1`] = `
+Array [
+  Object {
+    "email": "teste",
+    "id": "1",
+    "name": "Teste",
+  },
+]
+`;

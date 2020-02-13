@@ -1,4 +1,4 @@
 export interface IMicroService {
-  legadoPmz?: string
-  services?: string
+  legadoPmz?: string;
+  services?: string;
 }

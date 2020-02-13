@@ -6,11 +6,12 @@
   "license": "MIT",
   "repository": "https://github.com/dirsouza/api-gateway.git",
   "scripts": {
-    "build": "gulp build",
     "dev": "ts-node-dev src/index.ts",
+    "build": "gulp build",
     "test:watch": "jest --watch",
     "test": "jest --coverage --coverageDirectory=output/coverage/jest",
-    "tslint": "tslint -c tslint.json -p tsconfig.json"
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "prettier": "npx prettier --write src/**/*.{ts,js}, __test__/**/*.{ts,js}"
   },
   "dependencies": {
     "apollo-datasource-rest": "^0.7.0",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@types/graphql": "^14.5.0",
     "@types/jest": "^25.1.2",
+    "apollo-server-testing": "^2.10.0",
     "del": "^5.1.0",
     "dotenv-flow": "^3.1.0",
     "graphql-import": "^0.7.1",
@@ -39,6 +41,7 @@
     "typescript": "^3.7.5"
   },
   "jest": {
+    "verbose": true,
     "transform": {
       "^.+\\.ts$": "ts-jest"
     },
@@ -58,8 +61,7 @@
     ],
     "collectCoverageFrom": [
       "**/src/**/*.ts",
-      "!**/src/{app,index}.ts",
-      "!**/src/models/*.ts"
+      "!**/src/{server,index}.ts"
     ]
   }
 }

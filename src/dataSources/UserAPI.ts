@@ -11,10 +11,8 @@ class UserAPI extends RESTDataSource {
     try {
       const users: IResponse = {
         success: true,
-        data: [
-          { id: 1, name: "Fulano", email: "fulano@fulano.com.br"}
-        ],
-        message: "Resultado!"
+        data: [{ id: 1, name: 'Fulano', email: 'fulano@fulano.com.br' }],
+        message: 'Resultado!',
       };
 
       if (!users.success) {
@@ -23,13 +21,13 @@ class UserAPI extends RESTDataSource {
 
       return {
         success: true,
-        data: users.data
-      }
+        data: users.data,
+      };
     } catch (e) {
       return {
         success: false,
-        error: e.extensions ? e.extensions.response.body.error : e.message
-      }
+        error: e.extensions ? e.extensions.response.body.error : e.message,
+      };
     }
   }
 }

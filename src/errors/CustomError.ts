@@ -6,7 +6,7 @@ export class CustomError extends Error {
 
     this.extensions = {
       code: code.toUpperCase(),
-      ...responseException
-    }
+      ...responseException,
+    };
   }
 }
