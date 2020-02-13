@@ -3,3 +3,4 @@
 # import * from 'Enum.graphql';
 # import Query.*, Mutation.* from 'User.graphql';
 # import Query.* from 'Catalogo.graphql';
+# import Query.* from 'ControleAcesso.graphql';

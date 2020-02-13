@@ -1,0 +1,89 @@
+type Usuario {
+    id: ID,
+	nome: String,
+	login: String,
+	senha: String,
+	email: String,
+	dataCriacao: String,
+	codigoPessoa: ID,
+	aparelhos: [String],
+	perfis: [Perfils],
+	codigoAutorizacao: String,
+	status: String,
+	tempoExpiracaoSenha: Int,
+	enabled: Boolean,
+	username: String,
+	password: String,
+	authorities: String,
+	accountNonExpired: Boolean,
+	accountNonLocked: Boolean,
+	credentialsNonExpired: Boolean
+}
+
+type Perfils { 
+    id: Int, 
+    nome: String
+    permissoes: [Permissoes]
+}
+
+type Permissoes {
+    id: Int,
+    permAdd: String
+    permEdit: String
+    permDel: String
+    permView: String
+    funcionalidades: Funcionalidades
+    menus: Menus
+    modulos: Modulos
+    perfil: Perfil
+    sistemas: Sistemas
+}
+
+type Funcionalidades {
+    id: Int
+    nome: String
+    srcFuncionalidade: String
+    status: String
+}
+
+type Menus {
+    id: Int
+    nome: String
+    srcImagem: String
+    ordem: Int
+}
+
+type Modulos {
+    id: Int
+    nome: String
+    srcModulo: String
+    srcImagem: String
+}
+
+type Perfil {
+    id: Int
+    nome: String
+}
+
+type Sistemas {
+    id: Int
+    tipoSistema: TipoSistema
+    nome: String
+    status: String
+}
+
+type TipoSistema {
+    id: Int
+    descricao: String
+}
+
+input Login {
+    login: String
+    sistema: String
+}
+
+
+type Query {
+    searchLogin(login: Login!): Usuario!
+}
+

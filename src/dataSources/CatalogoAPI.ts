@@ -5,14 +5,14 @@ class CatalogoAPI extends RESTDataSource {
 
   constructor(config){
       super()
-      this.baseURL = `${config.services}/ws-catalogo/api`
+      this.baseURL = `${config.services}/ws-controle-acesso/api`
   }
 
   public async searchProduto(pesqProduto) {
 
     try {
       
-      const response = await this.get('/produto', pesqProduto);
+      const response = await this.get('/login/find/login/sistema/', pesqProduto);
 
       const produto: IResponse = {
         success: true,
