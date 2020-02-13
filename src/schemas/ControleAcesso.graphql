@@ -79,11 +79,13 @@ type TipoSistema {
 
 input Login {
     login: String
+    password: String
     sistema: String
 }
 
 
 type Query {
     searchLogin(login: Login!): Usuario!
+    searchPassword(login: Login!): Boolean
 }
 

@@ -12,3 +12,16 @@ export const searchLogin = async (_: any, { login }, { dataSources }: IResolverC
     return usuario.data;
     
 }
+
+
+export const searchPassword = async (_: any, { login }, { dataSources }: IResolverContext): Promise<any> => { 
+
+    const passwordExist = await dataSources.controleAcessoAPi.validatePassword(login);
+
+    if(!passwordExist) {
+
+        throw new CustomError(passwordExist, 'passwordExist_not_found');
+    }
+
+    return passwordExist
+}
