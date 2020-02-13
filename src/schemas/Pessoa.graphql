@@ -175,6 +175,24 @@ type ClienteBusiness {
    tipoFaturamento: String,
 }
 
+type PessoaPemaza {
+   codFuncionario: ID,
+   codigo: Int,
+   dataCadastro: String,
+   filial: Int,
+   gratcomissao: Int,
+   grupo: String,
+   nome: String,
+   nomecompleto: String,
+   recnum: Int,
+   status: String,
+   tipo: String,
+   tipoComissaoFuncionario: Boolean,
+   tipocomissao: String,
+   tipodeFuncaoFuncionario: Boolean
+}
+
 type Query {
    searchPessoa(id: String!): Pessoa!
+   searchPessoaPmz(id: String!): PessoaPemaza
 }

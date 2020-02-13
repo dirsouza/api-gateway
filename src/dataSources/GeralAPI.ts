@@ -12,6 +12,12 @@ class GeralAPI extends RESTDataSource {
         return estado;
     }
 
+    public async getPessoaPemaza(codFuncionario){
+
+        const response = await this.get(`pessoaPemaza/codfuncionario/${codFuncionario}`)
+        return response;
+    }
+
     
 }
 

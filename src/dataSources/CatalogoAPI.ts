@@ -14,28 +14,28 @@ class CatalogoAPI extends RESTDataSource {
          const response = await this.get('/produto', pesqProduto);
 
          if (!response) {
-               throw new Error("Product Not Found");
+            throw new Error("Product Not Found");
          }
 
          const produtosPage = {
-               produtos: response.produtos.content,
-               tags: response.tags,
-               numeroElementos: response.produtos.numberOfElements,
-               numeroPagina: response.produtos.number,
-               totalElementos: response.produtos.totalElements,
-               totalPaginas: response.produtos.totalPages,
+            produtos: response.produtos.content,
+            tags: response.tags,
+            numeroElementos: response.produtos.numberOfElements,
+            numeroPagina: response.produtos.number,
+            totalElementos: response.produtos.totalElements,
+            totalPaginas: response.produtos.totalPages,
          };
          
          return {
-               success: true,
-               data: produtosPage
+            success: true,
+            data: produtosPage
          }
 
       } catch (e) {
 
          return {
-               success: false,
-               error: e.extensions ? e.extensions.response.body.error : e.message
+            success: false,
+            error: e.extensions ? e.extensions.response.body.error : e.message
          }
 
       }

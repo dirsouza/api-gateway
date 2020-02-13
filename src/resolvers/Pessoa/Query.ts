@@ -7,3 +7,9 @@ export const searchPessoa = async (_: any, codigo, { dataSources }: IResolverCon
     return response
 }
 
+
+export const searchPessoaPmz = async (_: any, codigo, { dataSources }: IResolverContext): Promise<any> => {
+    const response = dataSources.geralApi.getPessoaPemaza(codigo.id)
+
+    return response
+}
