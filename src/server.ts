@@ -19,7 +19,8 @@ const apollo = new ApolloServer({
       userApi: new dataSources.UserAPI(microService),
       catalogoApi: new dataSources.CatalogoAPI(microService),
       geralApi: new dataSources.GeralAPI(microService),
-      controleAcessoAPi: new dataSources.ControleAcessoAPi(microService)
+      controleAcessoAPi: new dataSources.ControleAcessoAPi(microService),
+      pessoaApi: new dataSources.PessoaAPi(microService)
     }
   },
   context: () => {
