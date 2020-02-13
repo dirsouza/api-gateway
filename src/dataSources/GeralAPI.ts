@@ -1,10 +1,6 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
 
 class GeralAPI extends RESTDataSource {
-  constructor(config) {
-    super();
-    this.baseURL = `${config.microservicos}/ws-geral/api/`;
-  }
 
     constructor(config){
         super();
