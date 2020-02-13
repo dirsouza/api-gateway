@@ -16,7 +16,9 @@ const apollo = new ApolloServer({
   resolvers,
   dataSources: (): DataSources<IDataSources> => {
     return {
-      userApi: new dataSources.UserAPI(microService)
+      userApi: new dataSources.UserAPI(microService),
+      catalogoApi: new dataSources.CatalogoAPI(microService),
+      geralApi: new dataSources.GeralAPI(microService)
     }
   },
   context: () => {

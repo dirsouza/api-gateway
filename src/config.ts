@@ -10,5 +10,6 @@ export const config: IConfig = {
 };
 
 export const microService: IMicroService = {
-  legadoPmz: process.env.LEGADO_PMZ || undefined
+  legadoPmz: process.env.LEGADO_PMZ || undefined,
+  services: process.env.CATALOGO || undefined
 };
