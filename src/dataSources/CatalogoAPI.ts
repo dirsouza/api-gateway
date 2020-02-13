@@ -1,27 +1,20 @@
 import { RESTDataSource }  from 'apollo-datasource-rest';
-import { IResponse } from '../interfaces';
 
 class CatalogoAPI extends RESTDataSource {
 
    constructor(config){
       super()
-      this.baseURL = `${config.services}/ws-controle-acesso/api`
+      this.baseURL = `${config.services}/ws-catalogo/api`
    }
 
    public async searchProduto(pesqProduto) {
 
       try {
          
-         const response = await this.get('/login/find/login/sistema/', pesqProduto);
+         const response = await this.get('/produto', pesqProduto);
 
-         const produto: IResponse = {
-               success: true,
-               data: response,
-               message: "Resultado!"
-         };
-
-         if (!produto) {
-               throw new Error(response.message || response.error);
+         if (!response) {
+               throw new Error("Product Not Found");
          }
 
          const produtosPage = {

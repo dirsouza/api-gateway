@@ -1,0 +1,180 @@
+type Pessoa{
+   id: ID!,
+   nomeCompleto: String,
+   nomeFantasia: String,
+   tipoPessoa: String,
+   dataCadastro: String,
+   tipoCadastro: Int,
+   emails: [Email],
+   enderecos: [Endereco],
+   telefones: [Telefone],
+   pessoaFisica: PessoaFisica
+   pessoaJuridica: PessoaJuridica
+   cliente: Cliente
+   funcionario: Funcionario
+}
+
+type Email {
+   contato: String,
+   descricao: String,
+   finalidade: Int,
+   id: ID,
+   pessoa: Pessoa,
+}
+
+type Endereco {
+   bairro: String, 
+   cep: String, 
+   cepNuloOrEmpty: Boolean, 
+   codMunicipio: Int, 
+   codPais: Int, 
+   codUf: Int, 
+   complemento: String, 
+   complementoNuloOrEmpty: Boolean, 
+   contato: String, 
+   id: Int, 
+   infobusca: Int, 
+   inscricaoEstadual: InscricaoEstadual, 
+   logradouro: String, 
+   numero: String, 
+   numeroNuloOrEmpty: Boolean, 
+   pessoa: Pessoa, 
+   tipo: Int, 
+   validCodPaisBrasilComCep: Boolean, 
+   validContato: Boolean, 
+   validInfoBusca: Boolean, 
+   validTipoEndereco: Boolean, 
+   validTipoFiscal: Boolean,
+}
+
+type Telefone {
+   contato: String, 
+   ddd: Int, 
+   id: Int, 
+   numero: Int, 
+   pessoa: Pessoa, 
+   tipo: Int,
+}
+
+type PessoaFisica {
+   calcIpi: String, 
+   cgf: String, 
+   cpf: String, 
+   emissaoRg: String, 
+   emissorRg: String, 
+   id: Int, 
+   inscricaoMunicipal: String, 
+   numeroRg: String, 
+   operIsenta: String, 
+   pessoa: Pessoa, 
+}
+
+type InscricaoEstadual {
+   contribuInte: String, 
+   endereco: Endereco, 
+   id: Int, 
+   inscricao: String, 
+   validContribuInte: Boolean,
+}
+
+
+type PessoaFisica {
+   id: ID,
+   cpf: ID,
+   numeroRg: ID,
+   emissaoRg: ID,
+   emissorRg: String,
+   cgf: String,
+   inscricaoMunicipal:  String,
+   operIsenta: String,
+   calcIpi: String
+}
+
+type PessoaJuridica {
+   calcIpi: String, 
+   cgf: String, 
+   cnpj: String, 
+   descPisCofins: String, 
+   enqTrib: String, 
+   id: Int, 
+   indicadorAtividade: String, 
+   inscricaoMunicipal: String, 
+   inscricaoSuframa: String, 
+   issRetFonte: String, 
+   operIsenta: String, 
+   pessoa: Pessoa, 
+}
+
+
+type Cliente {
+   agruparNotas: String, 
+   bloqueio: String, 
+   cartaFianca: String, 
+   clienteBusiness: ClienteBusiness, 
+   cobrador: String, 
+   conceito: String, 
+   exignfdv: String, 
+   id: Int, 
+   limiteCredito: Int, 
+   linhaLeve: String, 
+   linhaMedia: String, 
+   linhaOutras: String, 
+   linhaPesada: String, 
+   metragemAuto: Int, 
+   metragemOfic: Int, 
+   observacao: String, 
+   percentualAumento: Int, 
+   pessoa: Pessoa, 
+   prazoMedio: Int, 
+   qtdElevador: Int, 
+   qtdMecanico: Int, 
+   qtdVeiculos: Int, 
+   qtdVendedor: Int, 
+   tipoPreco: String, 
+   tpEmpresa: String, 
+   valorCarta: Int,
+}
+
+type Funcionario {
+   id: ID
+   funcao: Funcao
+   parametrosComissoes: [ParametrosComissoes]
+   codColigata: Int
+   chapa: String
+   ativo: String
+}
+
+type Funcao {
+   calculoComissao: String, 
+   descricao: String, 
+   funcionarios: Funcionario, 
+   id: Int
+}
+
+type ParametrosComissoes {
+   id: ID,
+   tipo: Int,
+   grupo: String,
+   fator: Int,
+   dataInicialvigente: DateTime,
+   dataFinalvigente: DateTime,
+   validaTipoComissao: Boolean,
+   validaGrupoComissao: Boolean,
+   validaFatorComissao: Boolean,
+   validaDataInicialVigenciaComissao: Boolean,
+   validaDataFinalVigenciaComissao: Boolean
+}
+
+type ClienteBusiness {
+   cliente: Cliente,
+   codFilial: Int, 
+   codFuncionario: Int, 
+   id: Int, 
+   observacao: String, 
+   responsavel: String, 
+   tipoFaturamento: String,
+}
+
+type Query {
+   searchPessoa(id: String!): Pessoa!
+}

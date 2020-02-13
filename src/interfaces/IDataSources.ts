@@ -4,5 +4,6 @@ export interface IDataSources {
   userApi: dataSources.UserAPI,
   catalogoApi: dataSources.CatalogoAPI,
   geralApi: dataSources.GeralAPI,
-  controleAcessoAPi: dataSources.ControleAcessoAPi
+  controleAcessoAPi: dataSources.ControleAcessoAPi,
+  pessoaApi: dataSources.PessoaAPi
 }
