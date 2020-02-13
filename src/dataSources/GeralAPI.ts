@@ -4,13 +4,14 @@ class GeralAPI extends RESTDataSource {
 
     constructor(config){
         super();
-        this.baseURL =  `${config.microservicos}/ws-geral/api/`;
+        this.baseURL =  `${config.services}/ws-geral/api/`;
     }
 
     public async searchFilial(codigo) {
-        const estado = await this.get('filialPemaza/filial', codigo);
+        const estado = await this.get(`filialPemaza/filial?filial=${codigo}`);
         return estado;
     }
+
     
 }
 
