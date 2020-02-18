@@ -9,14 +9,14 @@ import { IDataSources } from '../../src/interfaces';
 
 export const constructTestServer = () => {
   const apis = {
-    userApi: new dataSources.UserAPI(microService)
+    userApi: new dataSources.UserAPI(microService),
   };
 
   const server = new ApolloServer({
     typeDefs: importSchema(`${__dirname}/../../src/schemas/index.graphql`),
     resolvers,
     dataSources: (): DataSources<IDataSources> => apis,
-    context: () => ({})
+    context: () => ({}),
   });
 
   return { server, ...apis };

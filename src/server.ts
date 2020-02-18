@@ -7,9 +7,9 @@ import fs from 'fs';
 import http from 'http';
 import https from 'https';
 
-import { config, microService } from './config';
 import * as dataSources from './dataSources';
 import { IDataSources } from './interfaces';
+import { config, microService } from './config';
 
 const apollo = new ApolloServer({
   typeDefs: importSchema(`${__dirname}/schemas/index.graphql`),
@@ -19,9 +19,9 @@ const apollo = new ApolloServer({
       userApi: new dataSources.UserAPI(microService),
       catalogoApi: new dataSources.CatalogoAPI(microService),
       geralApi: new dataSources.GeralAPI(microService),
-      controleAcessoAPi: new dataSources.ControleAcessoAPi(microService),
-      pessoaApi: new dataSources.PessoaAPi(microService)
-    }
+      controleAcessoApi: new dataSources.ControlePessoaAPI(microService),
+      pessoaApi: new dataSources.PessoaAPI(microService),
+    };
   },
   context: () => {
     return {

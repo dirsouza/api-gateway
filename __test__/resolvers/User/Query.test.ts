@@ -15,12 +15,12 @@ const GET_USERS = gql(`
 const mockGetUsersResponse = {
   success: {
     success: true,
-    data: [{ id: '1', name: 'Teste', email: 'teste@teste.com.br' }]
+    data: [{ id: '1', name: 'Teste', email: 'teste@teste.com.br' }],
   },
   errors: {
     success: false,
-    error: 'Users not found'
-  }
+    error: 'Users not found',
+  },
 };
 
 describe('Teste Usuarios Resolver', () => {
@@ -33,7 +33,7 @@ describe('Teste Usuarios Resolver', () => {
     const { query } = createTestClient(server);
 
     const res = await query({
-      query: GET_USERS
+      query: GET_USERS,
     });
 
     // @ts-ignore

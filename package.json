@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "test": "jest --coverage --coverageDirectory=output/coverage/jest",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "prettier": "npx prettier --write src/**/*.{ts,js}, __test__/**/*.{ts,js}"
+    "prettier": "prettier --write {src,__{test}__}/**/*.{ts,js}"
   },
   "dependencies": {
     "apollo-datasource-rest": "^0.7.0",

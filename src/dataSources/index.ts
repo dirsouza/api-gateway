@@ -1,13 +1,7 @@
 import UserAPI from './UserAPI';
-import GeralAPI from './GeralAPI'
-import CatalogoAPI from './CatalogoAPI'
-import ControleAcessoAPi from './ControleAcessoAPI'
-import PessoaAPi from './PessoaAPI';
+import GeralAPI from './GeralAPI';
+import CatalogoAPI from './CatalogoAPI';
+import ControleAcessoAPI from './ControleAcessoAPI';
+import PessoaAPI from './PessoaAPI';
 
-export { 
-    UserAPI,
-    GeralAPI,
-    CatalogoAPI,
-    ControleAcessoAPi,
-    PessoaAPi
-};
+export { UserAPI, GeralAPI, CatalogoAPI, ControleAcessoAPI, PessoaAPI };

@@ -1,7 +1,12 @@
 import { IResolverContext } from '../../interfaces';
 import { CustomError } from '../../errors';
 
-export const searchPessoa = async (_: any, codigo, { dataSources }: IResolverContext): Promise<any> => {
+export const searchPessoa = async (
+  _: any,
+  codigo,
+  { dataSources }: IResolverContext,
+): Promise<any> => {
+  const response = dataSources.pessoaApi.searchPessoaByLogin(codigo.id);
 
     const response = await dataSources.pessoaApi.searchPessoaByLogin(codigo.id)
 
