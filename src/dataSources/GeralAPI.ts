@@ -8,17 +8,52 @@ class GeralAPI extends RESTDataSource {
     }
 
     public async searchFilial(codigo) {
-        const estado = await this.get(`filialPemaza/filial?filial=${codigo}`);
-        return estado;
+
+        try {
+
+            const response = await this.get(`filialPemaza/filial?filial=${codigo}`);
+
+            if (!response) {
+                throw new Error("Filial Not Found");
+            }
+            
+            return {
+                success: true,
+                data: response
+            }
+
+        } catch (e) {
+
+            return {
+                success: false,
+                error: e.extensions ? e.extensions.response.body.error : e.message
+            }
+
+        }
     }
 
     public async getPessoaPemaza(codFuncionario){
-
+        try {
+            
         const response = await this.get(`pessoaPemaza/codfuncionario/${codFuncionario}`)
-        return response;
+        
+        if (!response) {
+            throw new Error("Person Pmz Not Found");
+        }
+        
+        return {
+            success: true,
+            data: response
+        }
+
+        } catch (e) {
+            return {
+                success: false,
+                error: e.extensions ? e.extensions.response.body.error : e.message
+            }
+        }
     }
 
-    
 }
 
 export default GeralAPI;

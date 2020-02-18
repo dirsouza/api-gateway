@@ -13,7 +13,6 @@ export const searchLogin = async (_: any, { login }, { dataSources }: IResolverC
     
 }
 
-
 export const searchPassword = async (_: any, { login }, { dataSources }: IResolverContext): Promise<any> => { 
 
     const passwordExist = await dataSources.controleAcessoAPi.validatePassword(login);
