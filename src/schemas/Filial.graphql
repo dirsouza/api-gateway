@@ -1,0 +1,23 @@
+type dadosFilial {
+    recnum: Int,
+    filial: Int,
+    nomeFantasia: Int,
+    razaoSocial: String,
+    endereco: String,
+    bairro: String,
+    cidade: String,
+    estado: String,
+    cep: String,
+    cnpj: String,
+    ddd: Int,
+    telefone: Int,
+    inscricao: String,
+    inscricaoMunicipal: String,
+    cadastroCliente: Int,
+    codigoEmpresa: Int
+}
+
+
+type Query {
+    useFilial: dadosFilial!
+}
