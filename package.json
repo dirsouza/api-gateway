@@ -68,7 +68,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run tslint && npm run prettier",
-      "pre-push": "npm run test"
+      "pre-push": "..."
     }
   }
 }
