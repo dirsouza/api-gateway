@@ -31,6 +31,7 @@
     "gulp": "^4.0.2",
     "gulp-tslint": "^8.1.4",
     "gulp-typescript": "^6.0.0-alpha.1",
+    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "ts-jest": "^25.2.0",
@@ -63,5 +64,11 @@
       "**/src/**/*.ts",
       "!**/src/{server,index}.ts"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run tslint && npm run prettier",
+      "pre-push": "npm run test"
+    }
   }
 }

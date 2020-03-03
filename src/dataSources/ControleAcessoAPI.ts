@@ -1,7 +1,7 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
 import { IResponse } from '../interfaces';
 
-class ControleAcessoAPi extends RESTDataSource {
+class ControleAcessoAPI extends RESTDataSource {
   constructor(config) {
     super();
     this.baseURL = `${config.services}/ws-controle-acesso/api`;
@@ -47,4 +47,4 @@ class ControleAcessoAPi extends RESTDataSource {
   }
 }
 
-export default ControleAcessoAPi;
+export default ControleAcessoAPI;

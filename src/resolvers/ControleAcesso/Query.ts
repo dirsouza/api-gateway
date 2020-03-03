@@ -6,7 +6,7 @@ export const searchLogin = async (
   { login },
   { dataSources }: IResolverContext,
 ): Promise<any> => {
-  const usuario: IResponse = await dataSources.controleAcessoAPi.sendLogin(login);
+  const usuario: IResponse = await dataSources.controleAcessoApi.sendLogin(login);
 
   if (!usuario.success) {
     throw new CustomError(usuario, 'users_not_found');
@@ -20,6 +20,11 @@ export const searchPassword = async (
   { login },
   { dataSources }: IResolverContext,
 ): Promise<any> => {
-  const passwordExist = await dataSources.controleAcessoAPi.validatePassword(login);
+  const passwordExist: IResponse = await dataSources.controleAcessoApi.validatePassword(login);
 
-export const searchPassword = async (_: any, { login }, { dataSources }: IResolverContext): Promise<any> => { 
+  if (!passwordExist.success) {
+    throw new CustomError(passwordExist, 'password_not_found');
+  }
+
+  return passwordExist.data;
+};

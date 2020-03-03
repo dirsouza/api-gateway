@@ -7,31 +7,24 @@ class PessoaAPI extends RESTDataSource {
   }
 
   public async searchPessoaByLogin(codigo) {
-    const response = await this.get(`pessoa/${codigo}`);
+    try {
+      const response = await this.get(`pessoa/${codigo}`);
 
-    public async searchPessoaByLogin(codigo){
+      if (!response) {
+        throw new Error('Person Not Found');
+      }
 
-        try {
-            
-            const response = await this.get(`pessoa/${codigo}`)
-
-            if (!response) {
-                throw new Error("Person Not Found");
-            }
-
-            return {
-                success: true,
-                data: response
-            }
-
-        } catch (e) {
-
-            return {
-                success: false,
-                error: e.extensions ? e.extensions.response.body.error : e.message
-            }
-        }
+      return {
+        success: true,
+        data: response,
+      };
+    } catch (e) {
+      return {
+        success: false,
+        error: e.extensions ? e.extensions.response.body.error : e.message,
+      };
     }
+  }
 }
 
 export default PessoaAPI;
