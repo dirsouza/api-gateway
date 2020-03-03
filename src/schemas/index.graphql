@@ -5,3 +5,4 @@
 # import Query.* from 'Catalogo.graphql';
 # import Query.* from 'ControleAcesso.graphql';
 # import Query.* from 'Pessoa.graphql';
+# import Query.* from 'Filial.graphql';
