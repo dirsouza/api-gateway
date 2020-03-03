@@ -1,4 +1,4 @@
-import { IResolverContext, IResponse } from "../../interfaces";
+import { IResolverContext, IResponse } from '../../interfaces';
 import { CustomError } from '../../errors';
 
 export const searchPessoa = async (

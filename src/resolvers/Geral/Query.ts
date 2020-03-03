@@ -1,4 +1,4 @@
-import { IResolverContext, IResponse } from "../../interfaces";
+import { IResolverContext, IResponse } from '../../interfaces';
 import { CustomError } from '../../errors';
 
 export const useFilial = async (_: any, {}, { dataSources }: IResolverContext): Promise<any> => {
